@@ -27,7 +27,12 @@
 
 <?php
 require 'scraperwiki.php';
+$endtime = time() + (60*60); //1h 
 for ($id = 1200001; $id <= 1500000; $id++) {
+	if ($endtime <= time())
+	{
+		exit;
+	}
 	$i = 1;
 	$delay = 250000;
 	  if (!validateEntry($id))
@@ -100,7 +105,13 @@ function validateEntry($id){
 	try {
 	$recordSet = scraperwiki::select("* from data where id ='". $id . "'");
 	if (!empty($recordSet[0]['id'])) {
-		if ($recordSet[0]['firstname'] != "" and $recordSet[0]['surname'] != ""){
+		if ($recordSet[0]['surname'] != ""){
+			$result = true;	
+		}
+		if ($recordSet[0]['firstname'] != ""){
+			$result = true;	
+		}
+		if ($recordSet[0]['fathername'] != ""){
 			$result = true;	
 		}
 	} 
