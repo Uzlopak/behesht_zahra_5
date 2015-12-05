@@ -46,14 +46,19 @@ for ($id = 1200001; $id <= 1500000; $id++) {
 	  	if ($delay > 5000000) {
 	  		$delay = 5000000;
 	  	}
-	  	if ($i == 20){
+	  	if ($i % 20 == 0)
+	  	{
+	  		$delay = 60000000;
+	  	}
+	  	if ($i == 61)
+	  	{
 	  		exit;
 	  	}
 	    usleep($delay);
 	    ripById($id);
 	    $i++;
 	  }
-	  print "! ";
+	  print "!";
   }
 }
 function ripById($id){
