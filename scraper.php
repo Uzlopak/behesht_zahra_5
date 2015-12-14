@@ -121,6 +121,15 @@ function validateEntry($id){
 		if ($recordSet[0]['fathername'] != ""){
 			$result = true;	
 		}
+		if ($recordSet[0]['graveplace'] != ""){
+			$result = true;	
+		}
+		if ($recordSet[0]['birthdate'] != ""){
+			$result = true;	
+		}
+		if ($recordSet[0]['deathplace'] != ""){
+			$result = true;	
+		}
 	} 
 	} catch (Exception $e) {
 	}
